@@ -62,11 +62,17 @@ You can then visit http://localhost:9091 in your browser.
 
 Stormcollector is the portion of Stormspotter that allows you to enumerate the subscriptions the provided credentials have access to. The **_RECOMMENDED_** way to use Stormcollector is to run the `sscollector.pyz` package, found in [the release file for your operating system](https://github.com/Azure/Stormspotter/releases/). This PYZ has been created with [Shiv](https://github.com/linkedin/shiv) and comes with all the packages already zipped up! The dependencies will extract themselves to a `.shiv` folder in the user's home directory.
 
+
 ```
 cd stormcollector
 python3 sscollector.pyz -h
 ```
-
+### Run collector from docker
+```
+cd stormcollector
+docker build -t stormcollector-ingestor .
+docker run --rm -v $(pwd):/app/results stormcollector-ingestor -h
+```
 If for some reason you don't want to use the provided package, you may install the required packages with `pip` or `pipenv`. With this approach, it's _highly recommended_ to install Stormcollector in a virtual environment to prevent package conflicts. If you have issues managing your virtual environments, you should use the recommended method above.
 
 ```
