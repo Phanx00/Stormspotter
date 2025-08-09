@@ -71,7 +71,7 @@ python3 sscollector.pyz -h
 ```
 cd stormcollector
 docker build -t stormcollector-ingestor .
-docker run --rm -v $(pwd):/app/results stormcollector-ingestor -h
+docker run --rm -v $(pwd)/:/app/ stormcollector-ingestor -h
 ```
 If for some reason you don't want to use the provided package, you may install the required packages with `pip` or `pipenv`. With this approach, it's _highly recommended_ to install Stormcollector in a virtual environment to prevent package conflicts. If you have issues managing your virtual environments, you should use the recommended method above.
 
